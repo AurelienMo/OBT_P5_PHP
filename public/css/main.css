@@ -109,11 +109,11 @@ span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","
 .cf {zoom:1} /* For IE 6/7 (trigger hasLayout) */
 
 /* DEFAULT MOBILE STYLE */
-body {width: 92%; margin: 0 auto} /* Center page without wrapper */
+body {width: 85%; margin: 0 auto} /* Center page without wrapper */
 /* column grid */
 .g1,.g2,.g3{display:block; position: relative; margin-left: 1%; margin-right: 1%}
 /* 1 column grid */
-.g1,.g2,.g3{width:98.0%}
+.g1,.g2,.g3{width:80.0%}
 
 /* Wrapper */
 .main{
@@ -183,18 +183,18 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 
 /* Tabs */
 .etabs{
-  margin: 0;
+  margin: 0px;
   padding: 0px;
   text-align: center;
 }
 .etabs li span{
-  display: none;
+  display: flex;
 }
 #tab-data-wrap{
-  padding: 30px 20px;
+  padding: 20px 0px;
   background: #fff;
-  border: 1px solid #f1f1f1;
-  box-shadow: 0px 6px #c0392b;
+  border: 0px solid #f1f1f1;
+  box-shadow: 4px 6px #c0392b;
   border-radius: 0px 0px 4px 4px;
 }
 
@@ -206,9 +206,11 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
   background: #fff;
   border: solid 1px #f1f1f1;
   border-bottom: 0px;
-  -moz-border-radius: 4px 4px 0 0;
-  -webkit-border-radius: 4px 4px 0 0;
-  margin-right:10px;
+  -moz-border-radius: 20px 20px 0px 0px;
+  -webkit-border-radius: 10px 10px 0 0;
+  margin-right:0px;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 .tab a {
@@ -726,7 +728,7 @@ Change widths as necessary
  /* 2 COLUMN GRID */
  .g1 {width:48.0%}
  .g2 {width:48.0%}
- .g3 {width:98.0%}
+ .g3 {width:90.0%}
 }
 
 /* LANDSCAPE TABLET/NETBOOK/LAPTOP */

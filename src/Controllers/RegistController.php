@@ -97,9 +97,9 @@ class RegistController extends AbstractController
             $message = (new Swift_Message())
                 ->setSubject('Registration account')
                 ->setFrom($data['mail'])
-                ->setTo('boutet.13010@gmail.com')
+                ->setTo($mail)
                 ->setBody(
-                    $this->getTwig()->render('mailer/confirmation.html.twig', ['username' => 'John Doe']),'text/html');
+                    $this->getTwig()->render('mailer/confirmation.html.twig', ['username' => $username]),'text/html');
 
             $result = $mailer->send($message);
             dump($result);

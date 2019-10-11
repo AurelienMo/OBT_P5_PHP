@@ -13,11 +13,6 @@ blog:
   controller: BlogController::blog
   methods: [GET,POST]
 
-portfolio:
-  path: /portfolio
-  controller: PortFolioController::portFolio
-  methods: [GET,POST]
-
 contact:
   path: /contact
   controller: ContactController::contact
