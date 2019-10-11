@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application;
 
+
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Loader\YamlFileLoader;
@@ -18,7 +19,8 @@ class RouterApplication
     /**@var Router */
     protected $router;
 
-    /**@var Params */
+    /*** @var array
+     */
     protected $params;
 
 

@@ -21,8 +21,8 @@ require '../vendor/autoload.php';
 //            ->setSubject('Registration account')
 //            ->setFrom($data['mail'])
 //            ->setTo('olivier.boutet@iter.org')
-//            ->setBody(
-//                $this->render('mailer/confirmation.html.twig')
+//            ->setBody(ht
+//                $this->renderResponse('mailer/confirmation.html.twig', text/html)
 //            );
 //
 //        $result = $mailer->send($message);

@@ -10,7 +10,7 @@ use Swift_SmtpTransport;
 
 class RegistController extends AbstractController
 {
-
+//$data = require "../../config/app/mailer.php";
     /**
      * @var
      */
@@ -41,7 +41,7 @@ class RegistController extends AbstractController
         }
 
         $validator = new Validator($_POST);
-        dump($validator);
+//        dump($validator);
 
 
         $rules = array(
@@ -69,26 +69,10 @@ class RegistController extends AbstractController
         $mail = $_POST['mail'] ?? null;
         $confmail = $_POST['conf_mail'] ?? null;
 
-//        $data = require "../../config/app/mailer.php";
-//        var_dump($data);
-//
-//        $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-//
-//            ->setAuthMode('login')
-//            ->setUsername($data['mail'])
-//            ->setPassword($data['password']);
-//
-//        $mailer = new Swift_Mailer($transport);
-//        $message = (new Swift_Message())
-//            ->setSubject('Registration account')
-//            ->setFrom($data['mail'])
-//            ->setTo('olivier.boutet@iter.org')
-//            ->setBody(
-//                $this->render('mailer/confirmation.html.twig')
-//            );
-//
-//        $result = $mailer->send($message);
-//        dump($result);
+
+        $data = require '../config/app/mailer.php';
+
+
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && count($errors) === 0) {
             echo 'ecriture en base';
@@ -104,7 +88,21 @@ class RegistController extends AbstractController
 ////            'registrationdate' => $registration->getregistrationDate()
 //        ));
 //        $results = $reqdb -> fetchAll ();
+            $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+                ->setAuthMode('login')
+                ->setUsername($data['mail'])
+                ->setPassword($data['password']);
+            dump ($data['mail'],' ** ', $data['password']);
+            $mailer = new Swift_Mailer($transport);
+            $message = (new Swift_Message())
+                ->setSubject('Registration account')
+                ->setFrom($data['mail'])
+                ->setTo('boutet.13010@gmail.com')
+                ->setBody(
+                    $this->getTwig()->render('mailer/confirmation.html.twig', ['username' => 'John Doe']),'text/html');
 
+            $result = $mailer->send($message);
+            dump($result);
 
 
             return $this->renderResponse('registration/registration.html.twig');//("core/blog.html.twig");

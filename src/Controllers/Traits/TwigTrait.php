@@ -16,7 +16,7 @@ trait TwigTrait
         return $twig->render($template, $paramsTemplate, $form);
     }
 
-    private function getTwig()
+    protected function getTwig()
     {
         $loader = new FilesystemLoader(__DIR__.'/../../../templates');
         $twig = new Environment(
