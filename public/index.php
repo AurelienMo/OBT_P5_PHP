@@ -34,7 +34,7 @@ $router = new RouterApplication($request);
 $router->initRouter();
 
 try{
-    $response = $router->run ();
+    $response = $router->run();
     $response->send();
 } catch (ResourceNotFoundException $e)
 {

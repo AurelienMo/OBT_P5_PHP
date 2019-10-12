@@ -19,19 +19,22 @@ class ContactController extends AbstractController
      */
     protected $errors;
 
-    public function contact($params)
+    public function contact($params, $route)
     {
+
         if (!empty($_POST)) {
             $_POST['name'] = preg_quote($_POST['name']);
             $_POST['lastName'] = preg_quote($_POST['lastName']);
-            $_POST['message'] = preg_quote($_POST['message']);
+            $_POST['messages'] = preg_quote($_POST['messages']);
         }
 
 
         $validator = new ValidatorMessage($_POST);
         dump($validator);
-
-
+        dump ($route);
+        if($route === 'ContactController::contact'){
+            echo 'c\'est bon c\'est ca';
+        }
         $rules = array(
             'name' => array(
                 'lenghMin' => 4,
@@ -55,10 +58,14 @@ class ContactController extends AbstractController
         $name = $_POST['name'] ?? null;
         $lastName = $_POST['lastName'] ?? null;
         $mail = $_POST['mail'] ?? null;
-        $message = $_POST['message'] ?? null;
+        $message = $_POST['messages'] ?? null;
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && count($errors) === 0) {
+            $sendMail = new SendMailController;
+            $message = $sendMail->message();
+            $mailer = $sendMail->transport();
+            $mailer->send($message);
             echo 'ecriture en base';
             return $this->renderResponse("core/contact.html.twig");
         }

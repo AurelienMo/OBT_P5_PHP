@@ -4,7 +4,6 @@
 namespace App\Controllers;
 
 use App\Model\Validator;
-use Swift_Mailer;
 
 class RegistController extends AbstractController
 
@@ -31,7 +30,7 @@ class RegistController extends AbstractController
 ////    protected $name;
 
 
-    public function registAction()
+    public function registAction($route, $sendMailController)
     {
 //        $data = require "../config/app/mailer.php";
         if (!empty($_POST['username'])) {
@@ -96,8 +95,6 @@ class RegistController extends AbstractController
 //                    'mailer/confirmation.html.twig',
 //                    ['username' => $username]),
 //                'text/html');
-
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && count($errors) === 0) {
             echo 'ecriture en base';
 //        $registData = $this->getGlobalPHP('POST');
@@ -113,7 +110,7 @@ class RegistController extends AbstractController
 //        ));
 //        $results = $reqdb -> fetchAll ();
 
-            $sendMail = new SendMail;
+            $sendMail = new SendMailController;
             $message = $sendMail->message();
             $mailer = $sendMail->transport();
             $mailer->send($message);
