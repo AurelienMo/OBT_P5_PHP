@@ -4,7 +4,7 @@
 namespace App\Controllers;
 
 
-use App\App\Database;
+use App\Application\Database;
 use App\controllers\traits\TwigTrait;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,6 +16,7 @@ use TwigTrait;
      * @var database|null
      */
     protected static $db;
+
     public static function getdb()
     {
         if (is_null(self::$db)){

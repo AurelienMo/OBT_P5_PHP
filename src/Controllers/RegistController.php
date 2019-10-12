@@ -5,12 +5,11 @@ namespace App\Controllers;
 
 use App\Model\Validator;
 use Swift_Mailer;
-use Swift_Message;
-use Swift_SmtpTransport;
 
 class RegistController extends AbstractController
+
 {
-//$data = require "../../config/app/mailer.php";
+
     /**
      * @var
      */
@@ -32,11 +31,11 @@ class RegistController extends AbstractController
 ////    protected $name;
 
 
-    public function registAction($params)
+    public function registAction()
     {
-
+//        $data = require "../config/app/mailer.php";
         if (!empty($_POST['username'])) {
-            $_POST['username'] = preg_quote($_POST['username']);
+            $_POST['username'] = preg_quote ($_POST['username']);
 
         }
 
@@ -63,15 +62,40 @@ class RegistController extends AbstractController
             )
         );
 
-        $validator->check($rules);
-        $errors = $validator->getError();
+        $validator -> check ($rules);
+        $errors = $validator -> getError ();
         $username = $_POST['username'] ?? null;
         $mail = $_POST['mail'] ?? null;
         $confmail = $_POST['conf_mail'] ?? null;
 
+        /**************************/
+        $username = 'olivier';
+        $mail = 'boutet.13010@gmail.com';
+        /**********************/
 
-        $data = require '../config/app/mailer.php';
 
+//        $options['ssl']['verify_peer'] = FALSE;
+//        $options['ssl']['verify_peer_name'] = FALSE;
+
+
+        /******************************/
+//        dump ($data);
+//        $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+//            -> setAuthMode ('login')
+//            -> setUsername ($data['mail'])
+//            -> setPassword ($data['password']);
+
+//        $mailer = new Swift_Mailer($transport);
+
+//        $message = (new Swift_Message())
+//            -> setSubject ('Registration account')
+//            -> setFrom ('boutet.13010@gmail.com')
+//            -> setTo ($mail)
+//            -> setBody (
+//                $this -> getTwig()->render (
+//                    'mailer/confirmation.html.twig',
+//                    ['username' => $username]),
+//                'text/html');
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && count($errors) === 0) {
@@ -88,23 +112,11 @@ class RegistController extends AbstractController
 ////            'registrationdate' => $registration->getregistrationDate()
 //        ));
 //        $results = $reqdb -> fetchAll ();
-            $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-                ->setAuthMode('login')
-                ->setUsername($data['mail'])
-                ->setPassword($data['password']);
-            dump ($data['mail'],' ** ', $data['password']);
-            $mailer = new Swift_Mailer($transport);
-            $message = (new Swift_Message())
-                ->setSubject('Registration account')
-                ->setFrom($data['mail'])
-                ->setTo($mail)
-                ->setBody(
-                    $this->getTwig()->render('mailer/confirmation.html.twig', ['username' => $username]),'text/html');
 
-            $result = $mailer->send($message);
-            dump($result);
-
-
+            $sendMail = new SendMail;
+            $message = $sendMail->message();
+            $mailer = $sendMail->transport();
+            $mailer->send($message);
             return $this->renderResponse('registration/registration.html.twig');//("core/blog.html.twig");
         }
         echo 'du con';
