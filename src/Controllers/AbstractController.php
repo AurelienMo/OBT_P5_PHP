@@ -50,7 +50,7 @@ use TwigTrait;
     private static function configureDatabase()
     {
         $cfgDatabase = require(__DIR__.'/../../config/app/database.php');
-        dump([$cfgDatabase]);
+//        dump([$cfgDatabase]);
         $database = new Database(
             sprintf("%s;dbname=%s", $cfgDatabase['dsn'], $cfgDatabase['dbname']),
             $cfgDatabase['user'],

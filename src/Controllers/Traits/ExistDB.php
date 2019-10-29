@@ -11,36 +11,32 @@ use App\Model\Registration;
 class ExistDB extends AbstractController
 
 {
-protected $error = 5;
+    protected $error = 5;
     protected static $db;
-    public function checkUser(){
 
-        $registration=new Registration();
+    public function checkUser(): ?string
+    {
 
-        $db = self ::getdb ();
+        $registration = new Registration();
+
+        $db = self::getdb();
         $statement = 'Select COUNT(*) from member where username=:username';
-        $request = $db -> prepare ($statement);
+        $request = $db->prepare($statement);
         $request->execute(array(
-            ':username'=>$registration->getusername()
+            ':username' => $registration->getusername()
         ));
         $data = $request->fetch();
-        if(($data['COUNT(*)']) > '0' ){
-            $name =  $registration->getusername();
-            if (strlen($name)>3){
-                if (strlen($name)>30){
-                    return $error ='Le <strong>USERNAME</strong> doit contenir moins de 30 caractères mais plus que 3. ';
+        if (($data['COUNT(*)']) > '0') {
+            $name = $registration->getusername();
+            if (strlen($name) > 3) {
+                if (strlen($name) > 30) {
+                    return 'Le <strong>USERNAME</strong> doit contenir moins de 30 caractères mais plus que 3. ';
                 }
-
-            }
-            else {
-                $error = 'Le <strong>USERNAME</strong> \''.$name.'\' est déjà utilisé ';
-                dump ($error);
+            } else {
+                $error = 'Le <strong>USERNAME</strong> \'' . $name . '\' est déjà utilisé ';
+                dump($error);
                 return $error;
             }
-
         }
-
-
-}
-
+    }
 }

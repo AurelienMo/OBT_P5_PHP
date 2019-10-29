@@ -9,18 +9,17 @@ use Swift_SmtpTransport;
 class SendMailController extends AbstractController
 
 {
-    public function transport()
+    public function transport(): Swift_Mailer
     {
-        $data = require "../config/app/mailer.php";
+        $data = require '../config/app/mailer.php';
         $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
             -> setAuthMode ('login')
             -> setUsername ($data['mail'])
             -> setPassword ($data['password']);
-        $mailer = new Swift_Mailer($transport);
-        return $mailer;
+        return new Swift_Mailer($transport);
     }
 
-    public function message()
+    public function message(): Swift_Message
     {
         $page = $_SERVER['PATH_INFO'];
             if ($page ==='/registration'){

@@ -10,50 +10,51 @@
                         <div class="controls">
                             <div class="row">
                                 <div class="col-md-5">
-                                    {% for error in errors['name']%}
+                                    {% for error in  errors['name'] %}
                                         <div class="alert alert-danger">
                                             {{ error }}
                                         </div>
                                     {% endfor %}
                                     <label for="form_name">Firstname *</label>
                                     <input id="form_name" type="text" name="name" class="form-control"
-                                           placeholder="Votre prénom *" required="required" value = "{{ name }}"
+                                           placeholder="Votre prénom *" required="required" value="{{ name }}"
                                            data-error="Votre prénom est nécessaire.">
                                 </div>
                                 <div class="col-md-5">
-                                    {% for error in errors['lastName']%}
+                                    {% for error,key in errors['lastName'] %}
                                         <div class="alert alert-danger">
-                                            {{ error }}
+                                            {{ key }}
                                         </div>
                                     {% endfor %}
                                     <label for="form_lastname">Lastname *</label>
                                     <input id="form_lastname" type="text" name="lastName"
-                                           class="form-control" placeholder="Votre nom *" value = "{{ lastName }}"
+                                           class="form-control" placeholder="Votre nom *" value="{{ lastName }}"
                                            required="required" data-error="Votre nom est nécessaire.">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-10">
                                     <label for="form_email">Email *</label>
-                                    {% for error in errors['E-mail']%}
+                                    {% for error in errors['E-mail'] %}
                                         <div class="alert alert-danger">
                                             {{ error }}
                                         </div>
                                     {% endfor %}
+                                    <br>
                                     <input id="form_email" type="text" name="mail" class="form-control"
-                                           placeholder="Votre mail *" value = "{{ mail }}" required="required"
+                                           placeholder="Votre mail *" value="{{ mail }}" required="required"
                                            data-error="Votre adresse mail n'est pas valide.">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-10">
-                                    {% for error in errors['messages']%}
+                                    {% for error in errors['messages'] %}
                                         <div class="alert alert-danger">
                                             {{ error }}
                                         </div>
                                     {% endfor %}
                                     <label for="form_message">Message * value = "{{ messages }}" </label>
-                                    <textarea id="form_message" name="messages"  class="form-control"
+                                    <textarea id="form_message" name="messages" class="form-control"
                                               placeholder="Votre message ... *" rows="4" required
                                               data-error="S'il vous plaît, laisser un message."></textarea>
                                 </div>

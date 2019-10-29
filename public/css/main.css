@@ -174,6 +174,12 @@ body {width: 85%; margin: 0 auto} /* Center page without wrapper */
 
   display: none;
 }
+#user .h3{
+  text-align: center;
+}
+#form_title{
+  margin-top: 10px;
+}
 #header h4{
   margin-bottom:0px;
 }
@@ -198,6 +204,10 @@ body {width: 85%; margin: 0 auto} /* Center page without wrapper */
   border-radius: 0px 0px 4px 4px;
 }
 
+#tab-data-wrap.h3{
+  text-align: center;
+  height: 700px;
+}
 
 .tab {
   display: inline-block;
@@ -367,14 +377,6 @@ font-weight: normal;}
 .work li p{
   clear: both;
 }
-
-/* Portfolio */
-
-/*.image image{
-  margin: 0px;
-  width: 100%;
-  position: absolute;
-}*/
 
 
 .image-overlay {
@@ -670,7 +672,7 @@ footer p{
   margin-bottom: 0px;
 }
 
-section.blog_contnent body {
+section.blog_content body {
   padding-top: 54px;
   text-align: center;
 }

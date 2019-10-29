@@ -4,150 +4,44 @@
     <div id="Blog">
         <section class="clearfix">
             <div class="g3">
-                <h1 class="mt-4">Pourquoi PLM ...</h1>
-
+{#                {% for article in articles %}#}
+                <h1 class="mt-2"><center>Quel langage de programmation choisir.</center></{{ titre }}</h1>
+                <br>
+                <h3>Par : Olivier Boutet{{ auteur }}</h3>
+                <h5> Date : 03 Mars 1970{{ date }}</h5>
                 <!-- Author -->
-                <p class="lead">
-                    by <a href="mailto:olivier.boutet@obt-development.eu">Olivier Boutet</a>
+                <br>
+                <div>
                     <button type="button" class="btn-perso" OnClick='window.location.href="/registration"'>S'inscrire
                     </button>
                     <button type="button" class="btn-perso" OnClick='window.location.href="/connection"'>S'identifier
                     </button>
-                </p>
-
-                <hr>
-
-                <!-- Date/Time -->
-                <p>Article du 30 Juillet, 2018 at 13:00</p>
-
-
-                <hr>
-                <!-- Preview Image -->
-                <img class="image rounded" src="/images/3dexperience-2.jpg" alt="3D Expérienece Dassault System">
-                <hr>
-                <!-- Post Content -->
-                <p class="lead">Voici les 6 bonnes raisons de vous lancer vers une solution <span
-                            class="bold">PLM </span>!</p> <br>
-                <h4 class="sub-title">1. LE PLM POUR… RÉPONDRE À DES BESOINS MÉTIERS SPÉCIFIQUES</h4>
-                <p>Le périmètre fonctionnel du <span class="bold">PLM </span>ne cesse de s’élargir et devient un
-                    complément indispensable à l’ERP et au CRM dans l’entreprise. Pour commencer, voici quelques
-                    exemples de fonctionnalités apportées par une solution <span class="bold">PLM </span> :</p>
-                <ul>
-                    <li>Gestion des données techniques – permettre au bureau d’études de sécuriser ses données et de
-                        mieux collaborer
-                    </li>
-                    <li>Répondre aux exigences client et/ou marketing</li>
-                    <li>Construire des nomenclatures multi-disciplines (mécanique, électronique, logiciel…) et
-                        multi-métiers (design, fabrication, maintenance)
-                    </li>
-                    <li>Gérer les configurations</li>
-                    <li>Piloter son processus achat et sa sous-traitance</li>
-                    <li>Conformité aux normes qualité, de sécurité et environnementales</li>
-                </ul>
-
-                <div class="illustration">
-                    <img class="image rounded" src="/public/images/img-1.jpg" alt="Image -1-">
-                    <img class="image rounded" src="/public/images/img-2.jpg" alt="Image -2-">
                 </div>
+<br>
+                <div>
+                        <h6>{{ article }}
 
-                <h4 class="sub-title">2. LE PLM POUR… RETROUVER LA BONNE INFORMATION</h4>
-
-                <p>La quantité de donnée produite est en croissance constante. Grâce à une solution de <span
-                            class="bold">Product LifeCycle Management</span>, vous pouvez :</p>
-                <ul class="one">
-                    <li>Retrouver l’information grâce à des mécanismes d’indexation puissants</li>
-                    <li>Filtrer sur les résultats afin d’affiner sa recherche</li>
-                    <li>Avoir accès à la bonne information</li>
-
-                    <ul class="two">
-                        <li><i> Celle qui est à la bonne version</li>
-                        <li> Celle qui est dans le bon état</li>
-                        <li> Celle à laquelle j’ai le droit d’accéder</i></li>
-                    </ul>
-                </ul>
-
-                <div class="illustration">
-                    <img class="image rounded" src="/images/img-3.jpg" alt="Image -3-">
-                </div>
-                <h4 class="sub-title">3. LE PLM POUR… PILOTER L’ACTIVITÉ</h4>
-
-                <p>Le <span class="bold">PLM </span> permet de piloter son activité du niveau le plus macroscopique
-                    jusqu’au détail des activités projet :</p>
-                <ul class="one">
-                    <li>Avoir une vue synthétique de l’état des projets et des ressources</li>
-                    <li>Connaître l’état des évolutions</li>
-                    <li>Piloter son budget</li>
-                    <li>Gérer ses projets</li>
-                    <ul class="two">
-                        <li>
-                            <i>Planning et membres de projet</li>
-                        <li>Risques</li>
-                        <li>Problèmes rencontrés</i>
-                        <li>...</i>
-                        </li>
-                    </ul>
-                </ul>
-
-                <div class="illustration">
-                    <img class="image rounded" src="/images/img-4.jpg" alt="Image -4-">
-                    <img class="image rounded" src="/images/img-5.jpg" alt="Image -5-">
-                </div>
-                <h4 class="sub-title">4. LE PLM POUR… PILOTER LES MODIFICATIONS</h4>
-
-                <p>Les modifications produit sont de plus en plus fréquentes et les processus d’évolution (change
-                    management) doivent être sécurisés sur l’ensemble de la chaîne. Ainsi, le <span
-                            class="bold">PLM </span> permet de :</p>
-                <ul class="one">
-                    <li>Piloter et dématérialiser ce processus à travers la gestion des demandes de modification (Change
-                        Request), des ordres de modification (Change Order) et des actions de modification (Change
-                        Action)
-                    </li>
-                    <li>Mesurer à tout moment et de manière précise l’impact de la modification sur l’ensemble des
-                        acteurs de la chaîne (conception, fabrication, maintenance, budget)
-                    </li>
-                </ul>
-
-                <div class="illustration">
-                    <img class="image rounded" src="/images/img-6.jpg" alt="Image -6-">
-                </div>
-                <h4 class="sub-title">5. LE PLM POUR… DÉCLOISONNER</h4>
-
-                <p>Si le <span class="bold">PLM</span> offre des fonctionnalités intéressantes pour de nombreux acteurs
-                    de l’entreprise, sa valeur 1ère est de <span class="bold">décloisonner les services</span>. En
-                    effet, avec cette solution :</p>
-                <ul class="one">
-                    <li>L’acheteur, le concepteur, l’opérateur de maintenance, les méthodes, le qualiticien… accèdent à
-                        une source de données commune à l’ensemble du processus.
-                    </li>
-                    <li>Les fichiers Excel de consolidation, les emails, les copie de fichiers ou tout simplement les
-                        coups de téléphone de type « où puis-je trouver le fichier… » qui sont sources d’erreur et de
-                        perte de temps sont diminués de manière drastique au sein de l’entreprise.
-                    </li>
-                </ul>
-
-                <div class="illustration">
-                    <img class="image rounded" src="/images/img-7.jpg" alt="Image -7-">
+                            <p>&nbsp;</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Viverra justo nec ultrices dui sapien eget mi proin. A pellentesque sit amet porttitor eget dolor. Viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Aliquet porttitor lacus luctus accumsan tortor. Eget velit aliquet sagittis id. Vitae elementum curabitur vitae nunc sed velit dignissim. Orci porta non pulvinar neque laoreet suspendisse interdum. Amet mattis vulputate enim nulla aliquet porttitor. Tristique risus nec feugiat in fermentum posuere. Blandit cursus risus at ultrices mi tempus imperdiet. Fringilla ut morbi tincidunt augue interdum. Amet risus nullam eget felis eget nunc. Tellus elementum sagittis vitae et leo. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Sagittis vitae et leo duis ut diam quam nulla. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. Sapien pellentesque habitant morbi tristique senectus et netus et.</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Mauris vitae ultricies leo integer malesuada nunc vel. Morbi tristique senectus et netus et malesuada fames ac turpis. Urna duis convallis convallis tellus id. Tempus imperdiet nulla malesuada pellentesque elit eget gravida. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Vel turpis nunc eget lorem. Massa tincidunt dui ut ornare lectus sit amet. Habitant morbi tristique senectus et netus et. Id nibh tortor id aliquet. In massa tempor nec feugiat nisl pretium fusce id velit. Sit amet luctus venenatis lectus magna fringilla. In ornare quam viverra orci sagittis eu. Ut etiam sit amet nisl purus in mollis.</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>Sit amet nulla facilisi morbi tempus iaculis. Ante in nibh mauris cursus mattis molestie. Mattis nunc sed blandit libero volutpat sed. Nibh cras pulvinar mattis nunc sed blandit libero volutpat sed. In egestas erat imperdiet sed euismod nisi porta. Feugiat nibh sed pulvinar proin gravida. Felis eget nunc lobortis mattis aliquam faucibus purus in. Id diam vel quam elementum. Elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Mi eget mauris pharetra et ultrices neque ornare. Ullamcorper a lacus vestibulum sed arcu non odio. Ac odio tempor orci dapibus. Nec dui nunc mattis enim ut tellus elementum sagittis vitae. Sodales neque sodales ut etiam. Felis imperdiet proin fermentum leo vel orci. Integer vitae justo eget magna fermentum iaculis eu. Id nibh tortor id aliquet lectus proin nibh.</p>
+                            <p></p>
+                            <p>&nbsp;</p>
+                        </h6>
+                    </div>
+{#                {% endfor %}#}
+                <br>
                 </div>
                 <blockquote class="blockquote">
-                    <p class="mb-0">Le respect de l'autre est règle de partage. Tout commentaire impoli, injurieux,
-                        raciste, homophobe ou autre ne sera pas validé. Je vous prierais par conséquent de partage vos
-                        avis ou question en restant digne, merci.</p>
                     <footer class="blockquote-footer">Le respect de nos semblables est la règle de notre conduite.<br>
                         <cite title="Source Title">Citation de Félicité de Genlis ; Les pensées et maximes détachées
                             (1801)</cite>
                     </footer>
                 </blockquote>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas
-                    placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem
-                    obcaecati?</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo,
-                    aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam
-                    recusandae? Qui, necessitatibus, est!</p>
-
-                <hr>
-
                 <!-- Comments Form -->
                 <div class="card my-4">
                     <h5 class="card-header">Leave a Comment:</h5>
@@ -165,7 +59,8 @@
                 <div class="article mb-4">
                     <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
                     <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
+                        <h5 class="mt-0">User Name</h5>
+                        <h5 class="mt-0">Date</h5>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
                         purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
                         vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -176,7 +71,8 @@
                 <div class="article mb-4">
                     <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
                     <div class="media-body">
-                        <h5 class="mt-0">Commenter Name</h5>
+                        <h6 class="mt-0">User Name</h6>
+                        <h6 class="mt-0">Date</h6>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
                         purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
                         vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -184,7 +80,8 @@
                         <div class="article mt-4">
                             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
                             <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
+                                <h6 class="mt-0">User Name</h6>
+                                <h6 class="mt-0">Date</h6>
                                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
                                 sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
                                 condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
@@ -194,7 +91,8 @@
                         <div class="article mt-4">
                             <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
                             <div class="media-body">
-                                <h5 class="mt-0">Commenter Name</h5>
+                                <h6 class="mt-0">User Name</h6>
+                                <h6 class="mt-0">Date</h6>
                                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
                                 sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
                                 condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.

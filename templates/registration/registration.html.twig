@@ -15,6 +15,11 @@
         <form method = "post" action = "/registration" class = "agile_form">
             <div class = "agileits-left">
                 <div id = "bloc">
+                    {% for error in errors[0]%}
+                        <div class="alert alert-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
                         {% for error in errors['username']%}
                         <div class="alert alert-danger">
                             {{ error }}
@@ -22,11 +27,21 @@
                         {% endfor %}
                     <label for = "pseudo"> Pseudo * </label>
                     <input type = "text" name = "username" id = "username" value = "{{ username }}" size = "30" requis/>
+                    {% for error in errors[1]%}
+                        <div class="alert alert-danger">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
                         {% for error in errors['E-mail']%}
                         <div class="alert alert-danger"size = "30">
                             {{ error }}
                         </div>
                         {% endfor %}
+                    {% if errorMail is not empty %}
+                    <div class="alert alert-danger">
+                        {{ 'Cet Email est déjà connue , veuillez utiliser vos identifiants pour vous connecter.' }}
+                    {% endif %}
+                    </div>
 
                     <label for = "mail"> E-mail * </label>
                     <input type = "email" name = "mail" id = "mail" value = "{{ mail }}" size = "30" requis/>
@@ -57,13 +72,15 @@
                     <input type = "submit" value = "Annuler">
                 </div>
             </div>
+
+
         </form>
-            <div class = "clear">
-                <h2 class = "copyright-agileits"> © 2018 OBT-Development Registration. Tous droits réservés | Concu par
-                    <a href="https://www.obt-development.eu" target="_blank"> Olivier Boutet </a>
-                </h2>
-            </div>
     </div>
+{#    <div class = "clear">#}
+{#        <h2 class = "copyright-agileits"> © 2018 OBT-Development Registration. Tous droits réservés | Concu par#}
+{#            <a href="https://www.obt-development.eu" target="_blank"> Olivier Boutet </a>#}
+{#        </h2>#}
+{#    </div>#}
 </div>
 </body>
 {% endblock %}

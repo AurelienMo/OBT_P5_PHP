@@ -9,13 +9,11 @@ use Twig\Loader\FilesystemLoader;
 
 trait TwigTrait
 {
-
     public function render(string $template, array $paramsTemplate =[], array $form =[])
     {
         $twig = $this->getTwig();
         return $twig->render($template, $paramsTemplate, $form);
     }
-
     protected function getTwig()
     {
         $loader = new FilesystemLoader(__DIR__.'/../../../templates');
@@ -23,6 +21,8 @@ trait TwigTrait
             $loader
         );
         $twig->addExtension(new DebugExtension());
+//        $twig->addGlobal('session', $_SESSION);
         return $twig;
     }
 }
+

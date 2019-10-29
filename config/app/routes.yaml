@@ -13,6 +13,11 @@ blog:
   controller: BlogController::blog
   methods: [GET,POST]
 
+editor:
+  path: /editor
+  controller: EditorController::editor
+  methods: [GET,POST]
+
 contact:
   path: /contact
   controller: ContactController::contact
