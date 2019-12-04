@@ -32,6 +32,7 @@ class ContactController extends AbstractController
             $_POST['lastName'] = preg_quote ($_POST['lastName']);
             $_POST['messages'] = preg_quote ($_POST['messages']);
         }
+
         $validator = new Validator($_POST);
 
         if ($route === 'contact') {
@@ -59,7 +60,6 @@ class ContactController extends AbstractController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && count ($errors) === 0) {
-            echo 'ecriture';
             $sendMail = new SendMailController;
             $message = $sendMail -> message ();
             $mailer = $sendMail -> transport ();

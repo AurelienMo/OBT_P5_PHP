@@ -1,8 +1,5 @@
 <?php
-
-
 namespace App\Model;
-
 
 use DateTime;
 
@@ -10,7 +7,7 @@ class Registration extends AbstractModel
 {
 
     /**
-     * @var int
+     * @var
      */
     protected $id;
 
@@ -101,7 +98,8 @@ class Registration extends AbstractModel
      */
     public function getPassword(): string
     {
-        return $this->password;
+        $password= password_hash($this->password, PASSWORD_BCRYPT);
+        return $password;
     }
 
     /**
@@ -117,7 +115,7 @@ class Registration extends AbstractModel
     /**
      * @return mixed
      */
-    public function getRegistrationDate():\DateTime
+    public function getRegistrationDate():DateTime
     {
         return $this->registrationDate;
     }
@@ -126,7 +124,7 @@ class Registration extends AbstractModel
      * @param mixed $registrationDate
      * @return Registration
      */
-    public function setRegistrationDate(\DateTime $registrationDate):Registration
+    public function setRegistrationDate(DateTime $registrationDate):Registration
     {
         $this->registrationDate = $registrationDate;
         return $this;

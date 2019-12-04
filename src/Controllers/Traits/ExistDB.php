@@ -1,6 +1,4 @@
-<?php
-
-
+<?php /** @noinspection PhpInconsistentReturnPointsInspection */
 namespace App\Controllers\Traits;
 
 

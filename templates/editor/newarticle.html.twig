@@ -1,0 +1,81 @@
+{% extends 'core/layout.html.twig' %}
+
+{% block body %}
+    <meta charset="utf-8">
+    <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector('#editor'),
+            {
+                toolbar: ['heading', 'bold', 'link', 'blockQuote', 'undo', 'redo']
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <div class="container bootstrap snippet">
+    <div class="row">
+        <div id="title_user" class="col-sm-10" align="center">
+            <h2>Bienvenue {{ username }}
+
+
+
+            </h2>
+        </div>
+    </div>
+    <div class="col-sm-10" align="center"><a href="/disconnected" name="disconnected" value="disconnected">Se déconnecter</a>
+        <h4>
+            Nom d'utilisateur : {{ username }}
+            <br>
+            Email : {{ email }}
+            <br>
+            Date d'inscription : {{ registrationDate }}
+            <br>
+        </h4>
+    </div>
+    <div>
+        <div>
+            {% if ( click == true ) %}
+<div id="title_user" class="col-sm-10" align="center"><h2>Editer un nouvel article ...</h2></div>
+{% else %}
+            <div id="title_user" class="col-sm-10" align="center"><h2>Modifier votre article ...</h2></div>
+            {% endif %}
+<div class="col-sm-10">
+            <form method="POST" action="">
+
+                <label for="title"></label>
+                <input type="text"
+                       name="title"
+                       id="title"
+                       size="130"
+                       placeholder="Votre titre"
+                       value="{{ title }}"
+
+                />
+                <br><br/>
+                <label for="editor">
+
+                </label><textarea name="editor"
+                                  id="editor"
+                                  placeholder="Votre article ...">
+                                    {{ article }}
+
+                </textarea>
+
+
+                <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+                <script>
+                    ClassicEditor.create(document.querySelector('#editor'),
+                        {
+                            toolbar: ['heading', 'bold', 'link', 'blockQuote', 'undo', 'redo']
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                </script>
+                    <button type="submit" class="btn-perso" name="content" >Envoyer l'article</button>
+                    <button onclick="location.href=/profil?page=1" type="submit" class="btn-perso" name="cancel" >Annuler</button>
+                 </form>
+    </div>
+    </div>
+    </div></div>
+{% endblock %}

@@ -9,13 +9,22 @@
   <div id="formContent">
     <div class="fadeIn first">
       <img src="../images/icon.png" id="icon" alt="User Icon" />
+      {% if errorConnect == 1 %}
+      <div class="alert alert-danger" style="width: 98%; " role="alert">Mot de passe ou login incorrect !!!</div>
+      <br>
+                    {% endif %}
     </div>
-    <form>
+    <form method="post">
+
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+
+      <br>
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
     <div id="formFooter">
+
 {#      <a class="underlineHover" href="#">mot de passe oublié ?</a>#}
       <div>
       <a class="underlineHover" href="/">Home...</a>

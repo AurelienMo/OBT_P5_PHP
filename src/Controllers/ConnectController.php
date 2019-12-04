@@ -1,20 +1,18 @@
 <?php
-
-
 namespace App\Controllers;
 
-
+use App\Model\CompareLog;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 class ConnectController extends AbstractController
 {
-
-    public function Connect()
+    public function Connection($connectError):Response
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $resistData = $this->getGlobalPHP('POST');
-            return $this->renderResponse ("core/profilUpdate.html.twig");
+        $errorConnect=new CompareLog();
+        $errorConnect=$errorConnect->provideLogs();
+        if(array_key_exists('connect',$_SESSION)){
+            return new RedirectResponse('/profil?page=1');
         }
-
-
-        return $this->renderResponse('connectionFolder/Connection.html.twig');
+        return $this->renderResponse('connectionFolder/Connection.html.twig',['errorConnect'=>$errorConnect]);
     }
 }

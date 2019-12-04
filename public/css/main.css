@@ -52,6 +52,8 @@ input[type="checkbox"], input[type="radio"] {box-sizing: border-box}
 input[type="search"] {-webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box}
 input[type="search"]::-webkit-search-decoration {-webkit-appearance: none}
 button::-moz-focus-inner, input::-moz-focus-inner {border: 0; padding: 0}
+.alert-danger{
+  padding-left: -10%;}
 
 /* QUOTES */
 blockquote, q {quotes: none}
@@ -155,6 +157,9 @@ body {width: 85%; margin: 0 auto} /* Center page without wrapper */
   padding: 0px;
   list-style: none;
 }
+.alert{
+margin: 20px;
+}
 .break{
   padding-bottom: 1em;
   clear: both;
@@ -207,6 +212,12 @@ body {width: 85%; margin: 0 auto} /* Center page without wrapper */
 #tab-data-wrap.h3{
   text-align: center;
   height: 700px;
+}
+
+#title_user{
+  /*background-color: #D3D3D388;*/
+  display: inline-block;
+
 }
 
 .tab {

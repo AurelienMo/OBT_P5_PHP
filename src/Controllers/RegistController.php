@@ -5,6 +5,7 @@ use App\Model\CheckForm;
 use App\Model\Registration;
 use App\Model\Validator;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 class RegistController extends AbstractController
 {
     /**
@@ -21,9 +22,13 @@ class RegistController extends AbstractController
      * @var array
      */
     protected $rules=[];
-    public function registAction()
+
+
+    public function registAction($global)
     {
+
         $validator=new Validator($_POST);
+
         $rules=array(
             'username'
             =>array(
@@ -59,21 +64,20 @@ class RegistController extends AbstractController
         $confmail=$_POST['conf_mail']??null;
         $validator->check($rules);
         $errors=$validator->getError();
+
         $_POST['username']= preg_replace("[^a-zA-Z]","",($_POST['username']));
         $check=new CheckForm();
         $errorUserName=$check->checkUserName();
         $errorMail=$check->checkMail();
-        dump($_SERVER['REQUEST_METHOD']==='POST');
-        if($errorUserName!==null||$errorMail!==null){
-            $errors[] = ($errorUserName);
-            $errors[] = ($errorMail);
-        }
-
-        dump($_POST['password']);
+        if($errorUserName!==null||$errorMail!==null)
+            {
+                $errors[] = ($errorUserName);
+                $errors[] = ($errorMail);
+            }
 
         $db = self ::getdb ();
-        if($_SERVER['REQUEST_METHOD']==='POST'&&count($errors)===0){
-            dump($errors);
+        if($_SERVER['REQUEST_METHOD']==='POST'&&count($errors)===0)
+        {
             $registData=$this->getGlobalPHP('POST');
             $registration=new Registration($registData);
             $db=self::getdb();
@@ -87,7 +91,7 @@ class RegistController extends AbstractController
             $mailer->send($message);
             return new RedirectResponse('/');
         }
-        echo 'du con';
+
         return $this->renderResponse('registration/registration.html.twig',['errors'=>$errors,'confmail'=>$confmail,'username'=>$username,'mail'=>$mail]);
     }
 }

@@ -24,6 +24,10 @@ h2 {
   min-height: 100%;
   padding: 20px;
 }
+.alert-danger{
+  width: 80%;
+  text-align: center;
+}
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
@@ -49,7 +53,7 @@ h2 {
 h2.inactive {
   color: #cccccc;
 }
-h2.active {
+h2.active{
   color: #0d0d0d;
   border-bottom: 2px solid #5fbae9;
 }
@@ -109,8 +113,8 @@ input[type=text]:focus {
   background-color: #f4e7de;
   border-bottom: 2px solid ;
 }
-input[type=text]:placeholder {
-  color: ##f4e7de;
+input[type=text]::placeholder {
+  color: #b95a18;
 }
 input[type=password] {
   background-color: #f6f6f6;
@@ -136,8 +140,8 @@ input[type=password]:focus {
   background-color: #f4e7de;
   border-bottom: 2px solid ;
 }
-input[type=password]:placeholder {
-  color: ##f4e7de;
+input[type=password]::placeholder {
+  color: #b95a18;
 }
 /* Simple CSS3 Fade-in-down Animation */
 .fadeInDown {

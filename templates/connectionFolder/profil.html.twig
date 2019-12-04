@@ -1,108 +1,107 @@
 {% extends 'core/layout.html.twig' %}
+
 {% block body %}
-<div class="container bootstrap snippet">
-    <div class="row">
-        <div class="col-sm-10"><h1>#username</h1></div>
-        <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="../images/profile.jpg"></a></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3"><!--left col-->
 
 
-            <div class="text-center">
-                <img src="../images/avatar.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                <h6>Modifier ma photo...</h6>
-                <input type="file" class="text-center center-block file-upload">
-            </div></hr><br>
-
-            <ul class="list-group">
-                <li class="list-group-item text-muted">Activité <i class="fa fa-dashboard fa-1x"></i></li>
-                <!--<li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>-->
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 159</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span>  236 400 250</li>
-                <!--<li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 1 850 230</li>-->
-            </ul>
-
-        </div><!--/col-3-->
-        <div class="col-sm-9">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="../index.php">Home</a></li>
-            </ul>
-
-            <div class="tab-content">
-                <div class="tab-pane active" id="home">
-                    <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="first_name"><h4>Prénom/First name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Prénom / First name" title="entrez votre prénom.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="first_name"><h4>Nom/Last name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Nom / Last name" title="entrez votre nom de famille.">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <label for="mobile"><h4>Téléphone/Phone</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Numéro de téléphone / mobile number" title="entrez votre numéro de téléphone.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email"><h4>Courrier électronique/Email</h4></label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="votre@email.com" title="entrez votre email.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email"><h4>Ville/Town</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="Ville / Town" title="Entrez votre ville.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="email"><h4>Pays/Country</h4></label>
-                                <input type="email" class="form-control" id="location" placeholder="Pays / Country" title="Entrez votre Pays.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password"><h4>Mot de passe/Password</h4></label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="mot de passe / password" title="enter your password.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-
-                            <div class="col-xs-6">
-                                <label for="password2"><h4>Vérification/Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="password2" placeholder="Mot de passe 2 / password 2" title="enter your password2.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <br>
-                                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Enregistrer/Save</button>
-                                <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                            </div>
-                        </div>
-                    </form>
-                    <hr>
-                </div><!--/tab-pane-->
-                </form>
+    <div class="container bootstrap snippet" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+        <div class="row">
+            <div id="title_user" class="col-sm-10" align="center">
+                <h2>Bienvenue {{ username }} </h2>
             </div>
-        </div><!--/tab-pane-->
-    </div><!--/tab-content-->
-</div><!--/col-9-->
-</div>
+        </div>
+        <div class="col-sm-10" align="center"><a href="/disconnected" name="disconnected" value="disconnected">Se
+                déconnecter</a>
+            <h4>
+                Nom d'utilisateur : {{ username }}
+                <br>
+                Email : {{ email }}
+                <br>
+                Date d'inscription : {{ registrationDate }}
+                <br>
+                <br>
+                <a style="color:black" href="/newarticle" name="newarticle value=" newarticle"> Créer un nouvel
+                <strong>article ...</strong></a>
+                <br>
+            </h4>
+        </div>
+        <div id="title_user" class="col-sm-10" align="center"><h2>Vos article</h2></div>
+        <div id="form_title" class="col-sm-12">
+
+            {% for article in articles %}
+                <div class="col-sm-10">
+                    <ul>
+                        <li>
+                            <center>
+                                <h3>
+                                    <img height="35" width="47" src="/images/articles/{{ article.id|e }}.jpg">
+
+                                    {{ article.titre|e }}       {{ article.createdDate|e }}
+                                </h3>
+                                <h7>
+                                        <a href=/article/{{ article.id }} name="open" class="btn btn-link">Ouvrir mon article</a>
+                                    <button data-id-article="{{  article.id|e }}" type="button" name="delete" data-toggle="modal" data-target="#infos"
+                                            value="{{  article.id|e }}" class="btn btn-link remove-btn"> Supprimer mon article
+                                    </button>
+                                    <a href="/newarticle?article={{ article.slug }} " name="modified"
+                                            class="btn btn-link"> Modifier mon article
+                                    </a>
+                                </h7>
+                                <br>
+                            </center>
+                        </li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <h4>
+        <center>
+            {% for j in 1..(totalPage) %}
+                <a href="/profil?page={{ j }}">{{ j }}</a>
+            {% endfor %}
+        </center>
+    </h4>
+    <div class="modal" id="infos">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 style="color:darkred" class="modal-title"><strong>ATTENTION ...</strong></h3>
+                </div>
+                <div class="modal-body">
+                    <h4>
+                        Votre article sera définitivement supprimé de notre base de donnée...
+                        <br>
+                        Après avoir accepté, aucun retour en arrière ne sera possible.
+                    </h4>
+                    <br>
+                    <button formaction="delete" class="confirm-remove btn btn-outline-warning" type="button">OK</button>
+                        <button data-dismiss="modal" type="button" class="btn btn-outline-dark">Annuler</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <em>Avertissement</em>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block javascripts %}
+    <script>
+         $(function(){
+             $('.remove-btn').on('click', function (e) {
+                 let id = $('.remove-btn').data('id-article');
+                 console.log(id);
+                 $('.confirm-remove').on('click', function (e){
+                     $.ajax({
+                         url: '/profil?page=1',
+                         method: 'DELETE',
+                         success: function (data){
+                             TODO
+                         }
+                     })
+                 })
+             })
+         })
+    </script>
 {% endblock %}

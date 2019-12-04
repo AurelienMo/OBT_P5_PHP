@@ -1,6 +1,4 @@
 <?php
-
-
 namespace App\Model;
 
 use App\Controllers\AbstractController;

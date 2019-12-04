@@ -2,6 +2,7 @@
 namespace App\Model;
 
 use App\Controllers\AbstractController;
+
 class Validator extends AbstractController
 {
     /**

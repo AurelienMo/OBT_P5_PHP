@@ -13,15 +13,27 @@ blog:
   controller: BlogController::blog
   methods: [GET,POST]
 
-editor:
-  path: /editor
-  controller: EditorController::editor
+disconnected:
+  path: /disconnected
+  controller: DisconnectedController::disconnected
   methods: [GET,POST]
 
 contact:
   path: /contact
   controller: ContactController::contact
   methods: [GET,POST]
+
+newArticle:
+  path: /newarticle
+  controller: NewArticleController::newArticle
+  methods: [GET,POST]
+
+article:
+  path: /article/{id}
+  controller: ArticleController::article
+  methods: [GET,POST]
+  requirements:
+    id: '\d+'
 
 registration:
   path: /registration
@@ -42,6 +54,6 @@ profil:
 
 connect:
   path: /connection
-  controller: ConnectController::connect
+  controller: ConnectController::connection
   methods: [GET,POST]
   requirements:

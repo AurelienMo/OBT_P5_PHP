@@ -4,12 +4,6 @@
     <div id="Blog">
         <section class="clearfix">
             <div class="g3">
-{#                {% for article in articles %}#}
-                <h1 class="mt-2"><center>Quel langage de programmation choisir.</center></{{ titre }}</h1>
-                <br>
-                <h3>Par : Olivier Boutet{{ auteur }}</h3>
-                <h5> Date : 03 Mars 1970{{ date }}</h5>
-                <!-- Author -->
                 <br>
                 <div>
                     <button type="button" class="btn-perso" OnClick='window.location.href="/registration"'>S'inscrire
@@ -17,92 +11,35 @@
                     <button type="button" class="btn-perso" OnClick='window.location.href="/connection"'>S'identifier
                     </button>
                 </div>
-<br>
-                <div>
-                        <h6>{{ article }}
-
-                            <p>&nbsp;</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Viverra justo nec ultrices dui sapien eget mi proin. A pellentesque sit amet porttitor eget dolor. Viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Aliquet porttitor lacus luctus accumsan tortor. Eget velit aliquet sagittis id. Vitae elementum curabitur vitae nunc sed velit dignissim. Orci porta non pulvinar neque laoreet suspendisse interdum. Amet mattis vulputate enim nulla aliquet porttitor. Tristique risus nec feugiat in fermentum posuere. Blandit cursus risus at ultrices mi tempus imperdiet. Fringilla ut morbi tincidunt augue interdum. Amet risus nullam eget felis eget nunc. Tellus elementum sagittis vitae et leo. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Sagittis vitae et leo duis ut diam quam nulla. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. Sapien pellentesque habitant morbi tristique senectus et netus et.</p>
-                            <p>&nbsp;</p>
-                            <p>&nbsp;</p>
-                            <p>Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Mauris vitae ultricies leo integer malesuada nunc vel. Morbi tristique senectus et netus et malesuada fames ac turpis. Urna duis convallis convallis tellus id. Tempus imperdiet nulla malesuada pellentesque elit eget gravida. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Vel turpis nunc eget lorem. Massa tincidunt dui ut ornare lectus sit amet. Habitant morbi tristique senectus et netus et. Id nibh tortor id aliquet. In massa tempor nec feugiat nisl pretium fusce id velit. Sit amet luctus venenatis lectus magna fringilla. In ornare quam viverra orci sagittis eu. Ut etiam sit amet nisl purus in mollis.</p>
-                            <p>&nbsp;</p>
-                            <p>&nbsp;</p>
-                            <p>Sit amet nulla facilisi morbi tempus iaculis. Ante in nibh mauris cursus mattis molestie. Mattis nunc sed blandit libero volutpat sed. Nibh cras pulvinar mattis nunc sed blandit libero volutpat sed. In egestas erat imperdiet sed euismod nisi porta. Feugiat nibh sed pulvinar proin gravida. Felis eget nunc lobortis mattis aliquam faucibus purus in. Id diam vel quam elementum. Elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Mi eget mauris pharetra et ultrices neque ornare. Ullamcorper a lacus vestibulum sed arcu non odio. Ac odio tempor orci dapibus. Nec dui nunc mattis enim ut tellus elementum sagittis vitae. Sodales neque sodales ut etiam. Felis imperdiet proin fermentum leo vel orci. Integer vitae justo eget magna fermentum iaculis eu. Id nibh tortor id aliquet lectus proin nibh.</p>
-                            <p></p>
-                            <p>&nbsp;</p>
-                        </h6>
-                    </div>
-{#                {% endfor %}#}
                 <br>
-                </div>
+
+                <h1 class="mt-2"><center>Nos articles diponibles.</center></{{ titre }}</h1>
+{#                {% for article in articles %}#}
+                <br>
+                    <lu>
+                            <div  id="form_title" class="col-sm-12">
+                                <div  id="form_title" class="col-sm-1">
+                                    <img height="35" width="47" src="/images/articles/{{image}}.jpg" >
+                                </div>
+                                <div  id="form_title" class="col-sm-7">
+                                    <h3><a href="">Quel langage de programmation choisir.{{ titre }}</a></h3>
+                                </div>
+                                <div  id="form_title" class="col-sm-4">
+                                    <h4>Par : Olivier Boutet{{ auteur }} </h4>
+                                    <h4>Date de création: 03 Mars 1970{{ date }}</h4>
+                                </div>
+                            </div>
+
+                    </lu>
+                    </div>
+            <br>
                 <blockquote class="blockquote">
                     <footer class="blockquote-footer">Le respect de nos semblables est la règle de notre conduite.<br>
                         <cite title="Source Title">Citation de Félicité de Genlis ; Les pensées et maximes détachées
                             (1801)</cite>
                     </footer>
                 </blockquote>
-                <!-- Comments Form -->
-                <div class="card my-4">
-                    <h5 class="card-header">Leave a Comment:</h5>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Single Comment -->
-                <div class="article mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                    <div class="media-body">
-                        <h5 class="mt-0">User Name</h5>
-                        <h5 class="mt-0">Date</h5>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                        vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
-
-                <!-- Comment with nested comments -->
-                <div class="article mb-4">
-                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                    <div class="media-body">
-                        <h6 class="mt-0">User Name</h6>
-                        <h6 class="mt-0">Date</h6>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                        vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-                        <div class="article mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h6 class="mt-0">User Name</h6>
-                                <h6 class="mt-0">Date</h6>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-
-                        <div class="article mt-4">
-                            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                            <div class="media-body">
-                                <h6 class="mt-0">User Name</h6>
-                                <h6 class="mt-0">Date</h6>
-                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce
-                                condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
+          </section>
     </div>
 
 {% endblock %}
