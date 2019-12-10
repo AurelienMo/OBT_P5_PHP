@@ -5,7 +5,7 @@ namespace App\Controllers;
 
 
 use App\Application\Database;
-use App\controllers\traits\TwigTrait;
+use App\Controllers\Traits\TwigTrait;
 use Symfony\Component\HttpFoundation\Response;
 
 abstract class AbstractController

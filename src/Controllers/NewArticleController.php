@@ -71,7 +71,6 @@ dump($id);
                             'article'=>$article,
                             'slug'=>$slug
                             ));
-                    die();
                     return new RedirectResponse('/profil?page=1');
                 }else{
                     return new RedirectResponse('/profil?page=1');

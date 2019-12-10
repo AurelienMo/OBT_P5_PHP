@@ -2,46 +2,34 @@
 
 namespace App\Controllers;
 
+use App\Model\DbRequest;
 use App\Model\ProfileRequest;
+use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Request;
 class ProfilController extends AbstractController
 {
-    protected static $db;
-
-    public function Profil($id)
+    public function profil($request, $id)
     {
-        $db = self::getdb();
 
-        $request = Request::createFromGlobals();
-        dump($request->query->get('page'));
         $page = $request->query->get('page');
-        dump($page);
-
+        $userArticles=null;
         $articleByPage = 3;
-
-        $statement = 'SELECT * FROM articles WHERE author= '.($_SESSION['id']).' ';
-        $reqdb = $db->query($statement);
-        $line = $reqdb->rowCount();
-
+        $numberArticles = new DbRequest();
+        $numberArticles = $numberArticles->addNumberArticles();
+        $line = $numberArticles->rowCount();
         $totalPage = ceil($line/$articleByPage);
 
             if(!empty($page) && $page>0 && $page<=$totalPage){
                 $page = intval($page);
                 $currentPage = $page;
             }else{ $currentPage = 1 ;
-
-
-        }
+            }
         $start = ($currentPage-1)*$articleByPage;
-
-        dump($_GET);
-
-        $db = self::getdb();
-        $statement = 'SELECT * FROM articles WHERE author= '.($_SESSION['id']).' ORDER BY id DESC LIMIT '.$start.','.$articleByPage.' ';
-        $reqdb = $db->query($statement);
-        $articles = $reqdb->fetchAll();
+        $addArticles = new DbRequest();
+        $articles = $addArticles->addArticles($start, $articleByPage);
         $line = (count($articles));
         $pass = intval($line-1);
+        dump($articles[0]['article']);
 
        if($_SERVER['REQUEST_METHOD']==='delete'){
            $db = self::getdb();

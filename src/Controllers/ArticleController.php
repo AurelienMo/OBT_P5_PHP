@@ -11,7 +11,7 @@ class ArticleController extends AbstractController
             $slug=($request->query->get('id'));
             $numberArticle = explode('/',$request->getPathInfo());
             $id = $numberArticle[2];
-            var_dump($id);
+            dump($_SESSION);
 
                 $statement='SELECT * FROM articles WHERE id='.$id.' ';
                 $db=self::getdb();

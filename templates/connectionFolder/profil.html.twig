@@ -37,6 +37,15 @@
 
                                     {{ article.titre|e }}       {{ article.createdDate|e }}
                                 </h3>
+
+                                    <h5>
+                                        <p>
+                                        {{ article.article|truncate(150, true)|raw }}
+                                        </p>
+                                        <br>
+                                    </h5>
+
+
                                 <h7>
                                         <a href=/article/{{ article.id }} name="open" class="btn btn-link">Ouvrir mon article</a>
                                     <button data-id-article="{{  article.id|e }}" type="button" name="delete" data-toggle="modal" data-target="#infos"

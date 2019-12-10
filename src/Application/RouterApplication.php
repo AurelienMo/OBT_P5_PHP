@@ -50,6 +50,7 @@ class RouterApplication
         $method = $controllerName[1];
 
         $controller = $this->instantiateController($controller);
+        array_unshift($params, $this->request);
         $this->cleanParamsRoute($params);
 
         return call_user_func_array([$controller, $method], $params);

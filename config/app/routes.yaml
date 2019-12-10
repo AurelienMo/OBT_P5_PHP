@@ -54,6 +54,6 @@ profil:
 
 connect:
   path: /connection
-  controller: ConnectController::connection
+  controller: ConnectController::connect
   methods: [GET,POST]
   requirements:
