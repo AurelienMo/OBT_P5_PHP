@@ -2,53 +2,44 @@
 
 namespace App\Controllers;
 
-use App\Model\DbRequest;
-use App\Model\ProfileRequest;
+use App\Helpers\Pagination;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Request;
 class ProfilController extends AbstractController
 {
-    public function profil($request, $id)
+    /** @var ArticleRepository  */
+    protected $articleRepository;
+    /**@var Pagination */
+    protected $pagination;
+    public function __construct()
+    {
+        $this->articleRepository = new ArticleRepository();
+        $this->pagination = new Pagination();
+    }
+    public function profil(Request $request, $id)
     {
 
-        $page = $request->query->get('page');
         $userArticles=null;
-        $articleByPage = 3;
-        $numberArticles = new DbRequest();
-        $numberArticles = $numberArticles->addNumberArticles();
-        $line = $numberArticles->rowCount();
-        $totalPage = ceil($line/$articleByPage);
-
-            if(!empty($page) && $page>0 && $page<=$totalPage){
-                $page = intval($page);
-                $currentPage = $page;
-            }else{ $currentPage = 1 ;
-            }
-        $start = ($currentPage-1)*$articleByPage;
-        $addArticles = new DbRequest();
-        $articles = $addArticles->addArticles($start, $articleByPage);
-        $line = (count($articles));
+        $articleByPageUser = 3;
+        $pagination = new Pagination();
+        $totalPageUser = $this->pagination->totalPageUser($articleByPageUser);
+        $currentPageUser = $this->pagination->currentPageUser($request, $totalPageUser);
+        $start = ($currentPageUser-1)*$articleByPageUser;
+        $articlesUser = $this->articleRepository->listArticlesUser($start, $articleByPageUser);
+        $line = (count($articlesUser));
         $pass = intval($line-1);
-        dump($articles[0]['article']);
 
-       if($_SERVER['REQUEST_METHOD']==='delete'){
-           $db = self::getdb();
-           $statement = ('DELETE FROM articles WHERE id='.$id.' ');
-           $reqdb = $db->exec($statement);
+       if($request->isMethod("DELETE")){
+           $this->articleRepository->delArticle($id);
         }
-
-
-
+       dump($articlesUser);
         return $this->renderResponse('connectionFolder/profil.html.twig', [
-        'username'=>ucfirst($_SESSION['username']),
-        'email' => ($_SESSION['email']),
-        'registrationDate' =>( $_SESSION['registrationDate']),
-            'articles' => $articles,
+            'session'=>$_SESSION,
+            'articles' => $articlesUser,
             'pass' => $pass,
-            'totalPage'=>$totalPage,
-            'currentPage'=>$currentPage
+            'totalPage'=>$totalPageUser,
+            'currentPage'=>$currentPageUser
     ]);
-
     }
 
 }

@@ -5,34 +5,47 @@
         <section class="clearfix">
             <div class="g3">
                 <br>
-                <div>
-                    <button type="button" class="btn-perso" OnClick='window.location.href="/registration"'>S'inscrire
-                    </button>
-                    <button type="button" class="btn-perso" OnClick='window.location.href="/connection"'>S'identifier
-                    </button>
-                </div>
+                {% if session.connect == 1 %}
+                    <div>
+                        <a href="/disconnected" class="btn-perso" name="disconnected" value="disconnected">Se
+                            déconnecter</a>
+
+                    </div>
+                    {% else %}
+                        <div>
+                            <button type="button"  class="btn-perso" OnClick='window.location.href="/registration"'>S'inscrire
+                            </button>
+                            <button type="button" class="btn-perso" OnClick='window.location.href="/connection"'>S'identifier
+                            </button>
+                        </div>
+                {% endif %}
                 <br>
 
-                <h1 class="mt-2"><center>Nos articles diponibles.</center></{{ titre }}</h1>
+                <h1 class="mt-2"><center>Nos articles diponibles.</center></h1>
 {#                {% for article in articles %}#}
                 <br>
+                {% for article in articles %}
                     <lu>
                             <div  id="form_title" class="col-sm-12">
                                 <div  id="form_title" class="col-sm-1">
-                                    <img height="35" width="47" src="/images/articles/{{image}}.jpg" >
+                                    <img height="35" width="47" src="/images/articles/{{article.id}}.jpg" >
                                 </div>
                                 <div  id="form_title" class="col-sm-7">
-                                    <h3><a href="">Quel langage de programmation choisir.{{ titre }}</a></h3>
+                                    <h3><a href="">{{ article.titre }}</a></h3>
                                 </div>
                                 <div  id="form_title" class="col-sm-4">
-                                    <h4>Par : Olivier Boutet{{ auteur }} </h4>
-                                    <h4>Date de création: 03 Mars 1970{{ date }}</h4>
+                                    <h4>Par : {{ article.author }} </h4>
+                                    <h4>Date : {{ article.created_date|date('d-m-Y') }}</h4>
                                 </div>
                             </div>
-
                     </lu>
+                {% endfor %}
                     </div>
-            <br>
+            <br><center>
+            {% for j in 1..(totalPage) %}
+                <a href="/blog?page={{ j }}">{{ j }}</a>
+            {% endfor %}
+            <br></center>
                 <blockquote class="blockquote">
                     <footer class="blockquote-footer">Le respect de nos semblables est la règle de notre conduite.<br>
                         <cite title="Source Title">Citation de Félicité de Genlis ; Les pensées et maximes détachées

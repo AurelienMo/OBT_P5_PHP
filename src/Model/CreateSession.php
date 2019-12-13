@@ -9,7 +9,7 @@ class CreateSession extends AbstractController
     protected $login;
     private $password;
 
-    public function Connection($request)
+    public function Connection(Request $request)
         {
             $db=self::getdb();
             $errorConnect=null;

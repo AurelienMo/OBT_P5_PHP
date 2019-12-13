@@ -49,7 +49,7 @@ resume:
 profil:
   path: /profil
   controller: ProfilController::profil
-  methods: [GET,POST]
+  methods: [GET,POST,DELETE]
   requirements:
 
 connect:

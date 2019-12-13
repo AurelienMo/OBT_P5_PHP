@@ -5,38 +5,22 @@ use App\Model\ProfileRequest;
 
 class Article extends AbstractModel
 {
-    protected static $db;
-
     /** @var string */
-    private $title;
+    private $titre;
 
     /**
      * @var string
      */
     private $article;
-    /**
-     * @date
-     */
-    private $date;
-    /**
-     * @return mixed
-     */
-    /***********************************************/
-                    /*FUNCTION GETTER SETTER*/
-    /***********************************************/
-    public function getDate()
-    {
-        return $this->date;
-    }
-    /**
-     * @param mixed $date
-     * @return Article
-     */
-    public function setDate($date)
-    {
-        $this->date=$date;
-        return $this;
-    }
+
+    /** @var \DateTime */
+    private $created_date;
+
+    /** @var string */
+    private $slug;
+
+    /** @var int */
+    private $author;
 
     /**
      * @return mixed
@@ -59,48 +43,71 @@ class Article extends AbstractModel
     /**
      * @return string
      */
-    public function getTitle(): string
+    public function getTitre():string
     {
-        return $this->title;
+        return $this->titre;
     }
 
     /**
-     * @param string $title
-     *
+     * @param string $titre
      * @return Article
      */
-    public function setTitle(string $title)
+    public function setTitre(string $titre):Article
     {
-        $this->title = $title;
-
+        $this->titre=$titre;
         return $this;
     }
 
-    /**************************************/
-                 /* METHOD */
-    /**************************************/
-
-    public function serialize()
+    /**
+     * @return string
+     */
+    public function getSlug():string
     {
-        return serialize(
-            [
-                $this->id,
-                $this->title,
-            ]
-        );
+        return $this->slug;
     }
 
-
-    public function unserialize($serialized)
+    /**
+     * @param string $slug
+     * @return Article
+     */
+    public function setSlug(string $slug):Article
     {
-        list(
-            $this->id,
-            $this->title,
-            $this->article,
-            $this->date
-            ) = unserialize($serialized);
-
+        $this->slug=$slug;
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getAuthor():int
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param int $author
+     * @return Article
+     */
+    public function setAuthor(int $author):Article
+    {
+        $this->author=$author;
+        return $this;
+    }
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedDate():\DateTime
+    {
+        return \DateTime::createFromFormat('Y-m-d', $this->created_date);
+    }
+
+    /**
+     * @param \DateTime $created_date
+     * @return Article
+     */
+    public function setCreatedDate($created_date):Article
+    {
+        $this->created_date = \DateTime::createFromFormat('Y-m-d', $created_date);
+        return $this;
+    }
 }

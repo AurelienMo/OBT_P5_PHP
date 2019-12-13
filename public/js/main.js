@@ -1,12 +1,12 @@
-$(document).ready( function() {
+ $(document).ready( function() {
 
-	// Logo
-	var $logo 	= $('/logo');
-	 if (location.href.indexOf("/") != -1) {
-        if(location.href.substr(location.href.indexOf("/"))!='/about'){
-        	$logo.show();
-        }
-    }
+	// // Logo
+	// var $logo 	= $('/logo');
+	//  if (location.href.indexOf("/") !== -1) {
+    //     if(location.href.substr(location.href.indexOf("/"))!=='/about'){
+    //     	$logo.show();
+    //     }
+    // }
     
 	// Show logo 
 	$('#tab-container .tab a').click(function() {
@@ -35,7 +35,7 @@ animMeter();
         transitionOut	: 'slideUp',
         animationSpeed	: 600,
         tabActiveClass	: 'active'}).bind('easytabs:midTransition', function(event, $clicked, $targetPanel){
-            if($targetPanel.selector=='#resume'){
+            if($targetPanel.selector==='#resume'){
                     animMeter();
             }
         });

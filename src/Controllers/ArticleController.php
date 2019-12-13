@@ -4,14 +4,14 @@ use Symfony\Component\HttpFoundation\Request;
 class ArticleController extends AbstractController
 {
     protected static $db;
-    public function article()
+    public function article(Request $request)
     {
-        $request=Request::createFromGlobals();
+
         if($_SERVER['REQUEST_METHOD']==='GET'){
             $slug=($request->query->get('id'));
             $numberArticle = explode('/',$request->getPathInfo());
             $id = $numberArticle[2];
-            dump($_SESSION);
+
 
                 $statement='SELECT * FROM articles WHERE id='.$id.' ';
                 $db=self::getdb();

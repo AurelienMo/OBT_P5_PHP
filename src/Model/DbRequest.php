@@ -2,13 +2,22 @@
 namespace App\Model;
 
 use App\Controllers\AbstractController;
+use App\Repository\ArticleRepository;
 class DbRequest extends AbstractController
 {
-    public function addNumberArticles()
-    {
 
+    public function addNumberArticlesUser()
+    {
         $db = self ::getdb ();
         $statement = 'SELECT * FROM articles WHERE author= '.($_SESSION['id']).' ';
+        $reqdb = $db->query($statement);
+        return $reqdb;
+    }
+
+    public function addNumberArticles()
+    {
+        $db = self ::getdb ();
+        $statement = 'SELECT * FROM articles';
         $reqdb = $db->query($statement);
         return $reqdb;
     }

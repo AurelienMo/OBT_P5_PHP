@@ -13,7 +13,7 @@ class NewArticleController extends AbstractController
     {
         $request = Request::createFromGlobals();
         if($_SERVER['REQUEST_METHOD']==='GET'){
-        $slug = ($request->query->get('article'));        dump($request->query->get('article'));
+        $slug = ($request->query->get('article'));
         if  (!empty($slug)){
             $statement="SELECT * FROM articles WHERE slug='$slug'";
             $db=self::getdb();
